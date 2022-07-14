@@ -1,5 +1,7 @@
 import { useRef, useEffect, useState } from "react";
-import mapboxgl from "mapbox-gl";
+/* eslint-disable */
+import mapboxgl from "!mapbox-gl";
+/* eslint-enable */
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoidG9iaWFzd29scGVydCIsImEiOiJjbDRvMHJqNGwwMnpuM2Nwc25sM210N3czIn0.Sa2s6JZsUmMeepaR83Jurw";
