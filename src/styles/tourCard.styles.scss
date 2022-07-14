@@ -1,0 +1,119 @@
+@use "index";
+
+.card {
+  color: black;
+  background-color: white;
+  flex: 0 1 25%;
+  font-size: 1.5rem;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 10%);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__picture {
+    height: 22rem;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
+  }
+
+  &__picture-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(index.$color-primary-light, 0.5);
+  }
+
+  &__picture-img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    position: absolute;
+    text-align: right;
+    top: 12rem;
+    right: 2rem;
+    font-size: 2.75rem;
+    color: white;
+    width: 70%;
+    text-transform: uppercase;
+    z-index: 10;
+
+    & span {
+      box-decoration-break: clone;
+      padding: 1rem 1.5rem;
+      line-height: 1;
+      font-weight: 300;
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(125, 213, 111, 0.85),
+        rgba(40, 180, 135, 0.85)
+      );
+    }
+  }
+
+  &__description {
+    padding: 3rem;
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    color: index.$color-grey-dark;
+    font-weight: 700;
+  }
+
+  &__text {
+    font-style: italic;
+    margin: 1rem 0;
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    // gap: 2rem;
+  }
+
+  &__data {
+    display: flex;
+    flex: 0 0 50%;
+    align-items: center;
+    gap: 1rem;
+
+    & ion-icon {
+      color: index.$color-primary-light;
+      font-size: 20px;
+    }
+  }
+
+  &__footer {
+    background-color: index.$color-grey-light-1;
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem;
+  }
+
+  &__btn {
+    color: white;
+    background-color: index.$color-primary;
+    border: none;
+    border-radius: 100px;
+    width: 12rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &:hover {
+      transform: translateY(-0.25rem);
+      box-shadow: 0 1rem 2rem rgb(0 0 0 / 15%);
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@use "index";
+
+.spinner {
+  height: 170rem;
+  background-color: index.$color-grey-light-2;
+  font-size: 8rem;
+  text-align: center;
+  color: black;
+}

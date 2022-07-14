@@ -1,0 +1,119 @@
+@use "index";
+
+.profile-container {
+  width: 90%;
+  // height: 200rem;
+  display: flex;
+  margin: 10rem auto;
+  box-shadow: index.$shadow-light;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.user-nav {
+  background-color: index.$color-primary;
+  flex: 1;
+
+  &__list {
+    margin-top: 8rem;
+    list-style: none;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+
+  &__item {
+    display: flex;
+    padding-left: 5rem;
+    align-items: center;
+    cursor: pointer;
+    border-left: 0px solid white;
+    transition: all 0.3s;
+
+    &:hover {
+      border-left: 4px solid white;
+    }
+  }
+
+  & ion-icon {
+    font-size: 2rem;
+  }
+
+  & span {
+    padding: 1.5rem;
+  }
+}
+
+.main {
+  background-color: white;
+  width: 50rem;
+  color: black;
+  flex: 2;
+
+  & h3 {
+    font-size: 1.8rem;
+    color: index.$color-primary-light;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  margin: 7rem auto;
+  width: 60%;
+}
+
+.input {
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  color: index.$color-grey-dark-2;
+  font-weight: 700;
+
+  & input {
+    background-color: index.$color-grey-light-2;
+    border: none;
+    margin-bottom: 2.55rem;
+    height: 3.5rem;
+    padding: 0 2rem 0 2rem;
+    border-radius: 3px;
+    color: inherit;
+    font-weight: inherit;
+
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid index.$color-secondary-dark;
+
+      &:valid {
+        border-bottom: 2px solid index.$color-primary;
+      }
+    }
+    &::placeholder {
+      color: rgba(153, 153, 153, 0.5);
+    }
+  }
+
+  &__btn {
+    color: white;
+    background-color: index.$color-primary;
+    border: none;
+    border-radius: 100px;
+    width: 18rem;
+    height: 4rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &:hover {
+      transform: translateY(-0.25rem);
+      box-shadow: 0 1rem 2rem rgb(0 0 0 / 15%);
+    }
+  }
+}

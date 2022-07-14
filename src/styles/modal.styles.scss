@@ -1,0 +1,26 @@
+@use "index";
+
+.modal {
+  height: 50px;
+  width: 35rem;
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  // display: none;
+  font-size: 1.6rem;
+}
+
+.modal-success {
+  background-color: index.$color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-failure {
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

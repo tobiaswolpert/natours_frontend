@@ -1,0 +1,10 @@
+@use "index";
+
+.app {
+  max-width: 180rem;
+  margin: 2rem auto;
+  background-color: index.$color-grey-light-2;
+  box-shadow: index.$shadow-dark;
+  border-radius: 3px;
+  overflow: hidden;
+}
