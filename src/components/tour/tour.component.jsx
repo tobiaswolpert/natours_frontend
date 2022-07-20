@@ -52,6 +52,8 @@ const Tour = ({ data }) => {
     e.target.textContent = "Book Tour Now";
   };
 
+  console.log("DATA", data.imageCover.split(".")[0]);
+
   return localLoading ? (
     <Spinner />
   ) : (
@@ -62,7 +64,7 @@ const Tour = ({ data }) => {
           <img
             className="hero__image"
             crossOrigin="anonymous"
-            src={url + "/tours/" + data.imageCover}
+            src={url + "/tours/" + data.imageCover.split(".")[0] + ".webp"}
             alt={data.name}
           />
           <div className="hero__details">
@@ -165,7 +167,7 @@ const Tour = ({ data }) => {
           return (
             <img
               crossOrigin="anonymous"
-              src={url + "/tours/" + element}
+              src={url + "/tours/" + element.split(".")[0] + ".webp"}
               alt={element.name}
             />
           );
@@ -205,7 +207,7 @@ const Tour = ({ data }) => {
               return (
                 <img
                   crossOrigin="anonymous"
-                  src={url + "/tours/" + element}
+                  src={url + "/tours/" + element.split(".")[0] + ".webp"}
                   alt={"name"}
                 />
               );
