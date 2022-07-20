@@ -1,5 +1,5 @@
 const NewHome = () => {
-  <div>Test</div>;
+  <div className="homepage_container">Test 2</div>;
 };
 
 export default NewHome;
