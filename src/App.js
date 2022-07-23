@@ -5,6 +5,7 @@ import Home from "./routes/home/home.component";
 import Header from "./routes/header/header.component";
 import ProtectedRoutes from "./routes/protected/protected.component";
 import Spinner from "./components/spinner/spinner.component";
+import Error from "./components/error/error.component";
 // import Login from "./routes/login/login.component";
 // import Profile from "./routes/profile/profile.component";
 // import MyTours from "./routes/myTours/myTours.component";
@@ -19,6 +20,7 @@ import {
   selectTokenExpiration,
 } from "./store/user/user.selector";
 import { logoutUser } from "./store/user/user.action";
+import { selectError } from "./store/tours/tours.selector";
 
 //User React.lazy() to lazy load certain routes
 const Login = React.lazy(() => import("./routes/login/login.component"));
@@ -35,6 +37,7 @@ function App() {
   const isLoggedIn = useSelector(selectUserIsLoggedIn);
   const token = useSelector(selectUserToken);
   const tokenExpiration = useSelector(selectTokenExpiration);
+  const tourError = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchToursAsync());
@@ -55,7 +58,7 @@ function App() {
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<Header />}>
-            <Route index element={<Home />} />
+            <Route index element={tourError ? <Error /> : <Home />} />
             <Route path="/tour/:tourName" element={<TourContainer />} />
             <Route path="/login" element={<Login />} />
             <Route element={<ProtectedRoutes />}>

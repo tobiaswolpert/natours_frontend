@@ -5,8 +5,8 @@ const Footer = () => {
     <div className="footer">
       <img className="footer__logo" alt="footerLogo" src={logoGreen} />
       <div className="footer__list">
-        <div className="footer__item">About us</div>
-        <div className="footer__item">About us</div>
+        {/* <div className="footer__item">About us</div>
+        <div className="footer__item">About us</div> */}
       </div>
     </div>
   );

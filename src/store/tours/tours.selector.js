@@ -9,6 +9,11 @@ export const selectToursIsLoading = createSelector(
   (toursSlice) => toursSlice.isLoading
 );
 
+export const selectError = createSelector(
+  [selectToursReducer],
+  (toursSlice) => toursSlice.error
+);
+
 export const selectToursMap = createSelector(
   [selectToursReducer],
   (toursSlice) => toursSlice.tours
