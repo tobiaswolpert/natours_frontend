@@ -1,0 +1,36 @@
+/*1 REM and EM in media queries do not depend on HTML font size in meadi queries 1REM = 1EM = 16px*/
+
+/*1000px Breakpoint */
+@media (max-width: 66em) {
+  .card {
+    flex: 0 0 35%;
+  }
+}
+
+/*900px breakpoint*/
+@media (max-width: 57em) {
+  .card {
+    flex: 0 0 70%;
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+}
+
+/*600px breakpoint*/
+@media (max-width: 37.5em) {
+  .header {
+    flex-direction: column-reverse;
+    height: auto;
+    gap: 2rem;
+
+    &__logo {
+      order: 1;
+    }
+
+    &__authentication {
+      // display: block;
+    }
+  }
+} ;
