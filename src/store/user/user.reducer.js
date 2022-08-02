@@ -40,6 +40,33 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         details: "",
       };
 
+    case USER_ACTION_TYPES.SIGNUP_USER_START:
+      return { ...state, isLoading: true };
+
+    case USER_ACTION_TYPES.SIGNUP_USER_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isLoggedIn: true,
+        token: payload.token,
+        tokenExpirationDate: new Date(
+          new Date().getTime() + 1 * 1000 * 60 * 20
+        ).toISOString(),
+        status: payload.status,
+        details: payload.data.user,
+      };
+
+    case USER_ACTION_TYPES.SIGNUP_USER_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        isLoggedIn: false,
+        status: payload.message,
+        token: "",
+        tokenExpirationDate: "",
+        details: "",
+      };
+
     case USER_ACTION_TYPES.UPDATE_SETTINGS_START:
       return { ...state, isLoading: true };
 

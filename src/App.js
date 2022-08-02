@@ -6,10 +6,7 @@ import Header from "./routes/header/header.component";
 import ProtectedRoutes from "./routes/protected/protected.component";
 import Spinner from "./components/spinner/spinner.component";
 import Error from "./components/error/error.component";
-// import Login from "./routes/login/login.component";
-// import Profile from "./routes/profile/profile.component";
-// import MyTours from "./routes/myTours/myTours.component";
-// import TourContainer from "./routes/tour/tourContainer.component";
+import Signup from "./routes/signup/signup.component";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -61,6 +58,7 @@ function App() {
             <Route index element={tourError ? <Error /> : <Home />} />
             <Route path="/tour/:tourName" element={<TourContainer />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route element={<ProtectedRoutes />}>
               <Route path="/me" element={<Profile />} />
               <Route path="/my-tours" element={<MyTours />} />
