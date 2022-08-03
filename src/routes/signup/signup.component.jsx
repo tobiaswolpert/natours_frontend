@@ -13,6 +13,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    e.target.reportValidity();
   };
 
   const handleChange = (event) => {
@@ -41,6 +42,12 @@ const Signup = () => {
           ...signupFields,
           [event.target.name]: event.target.value,
         });
+        if (signupFields.password !== signupFields.passwordConfirm) {
+          event.target.setCustomValidity(
+            "Confirmed password doesn't match password"
+          );
+          // event.target.reportValidity();
+        }
         break;
       default:
         console.log("Check");
