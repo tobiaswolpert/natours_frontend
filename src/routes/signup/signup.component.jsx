@@ -1,19 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const defaultSignupFields = {
   userName: "",
   email: "",
   password: "",
   passwordConfirm: "",
+  passwordMismatch: false,
 };
 
 const Signup = () => {
+  const confirmRef = useRef(null);
   const [signupFields, setSignupFields] = useState(defaultSignupFields);
-  const { userName, email, password, passwordConfirm } = signupFields;
+  const { userName, email, password, passwordConfirm, passwordMismatch } =
+    signupFields;
+
+  console.log(
+    "OBEN",
+    passwordMismatch,
+    password,
+    passwordConfirm,
+    confirmRef.current
+  );
+
+  useEffect(() => {
+    setSignupFields({
+      ...signupFields,
+      passwordMismatch: password !== passwordConfirm ? true : false,
+    });
+  }, [password, passwordConfirm]);
+
+  useEffect(() => {
+    confirmRef.current.setCustomValidity(
+      passwordMismatch ? "Confirmed password must match password" : ""
+    );
+  }, [passwordMismatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    e.target.reportValidity();
+    console.log("SUBMITTED");
   };
 
   const handleChange = (event) => {
@@ -42,12 +66,7 @@ const Signup = () => {
           ...signupFields,
           [event.target.name]: event.target.value,
         });
-        if (signupFields.password !== signupFields.passwordConfirm) {
-          event.target.setCustomValidity(
-            "Confirmed password doesn't match password"
-          );
-          // event.target.reportValidity();
-        }
+
         break;
       default:
         console.log("Check");
@@ -91,6 +110,7 @@ const Signup = () => {
 
         <label>Password Confirm</label>
         <input
+          ref={confirmRef}
           type="password"
           name="passwordConfirm"
           required
